@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정규식</title>
+</head>
+<body>
+    <div class="one"></div>
+    <div class="two"></div>
+
+    <label for="id">id</label>
+    <input type="text" id="id" value="">
+
+    <script>
+        let A = "즐거운 하루 보내세요~";
+        let B = "하루";
+        let D = "즐거운";
+        let C = A.match(B) //배열 | 변수A에 있는 것중에 B변수 내용찾기
+        let E = A.match(D)
+    
+        console.log(C)
+
+        document.querySelector(".one").innerHTML=C[0];
+        document.querySelector(".two").innerHTML=E[0];
+
+
+        let idP = /[a-zA-Z0-9]{5,20}$/;
+        let id = document.querySelector("#id")
+
+        //$(A).click(function(){}) <-제이쿼리에서 작성법
+        //id에서 포커스가 없어지면 할일
+        //id.addEventListener('focusout',function(){}) <-자바스크립트에서 작성법
+        id.addEventListener('focusout',function(){
+            console.log(idP.test(id.value))
+        })
+        //focusout : 마우스영역 벗어낫을 때
+
+
+        //✔ .text() 주어진 문자열이 정규 표현식을 만족하는지 판별하고, 그 여부를 true 또는 false로 반환함
+
+
+
+        let reg=/(?:https?:\/\/)?(?:www\.)?youtu.be\/([a-zA-Z0-9_]{11})/; //{}몇글자 뽑아올지에 대한 수
+        let url = "https://www.youtu.be/m5rqmr2YYic"
+
+        //console.log(url.match(reg)) ->여기서 배열확인하고 밑에 스크립트 작성
+        let yt=url.match(reg)
+        console.log(yt[1]) // []는 배열중 몇번째를 뽑을 것이냐
+
+        
+
+
+
+    </script>
+</body>
+</html>
